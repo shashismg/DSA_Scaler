@@ -1,0 +1,26 @@
+def main():
+    # YOUR CODE GOES HERE
+    # Please take input and print output to standard input/output (stdin/stdout)
+    # E.g. 'input()/raw_input()' for input & 'print' for output
+
+    ipall = input().split()
+    iparraysize = int(ipall[0])
+    iparray = []
+
+    for i in range(1, iparraysize+1):
+        iparray.append(int(ipall[i]))
+
+    min = iparray[0]
+    max = iparray[0]
+
+    for i in range(iparraysize):
+        if iparray[i] > max:
+            max=iparray[i]
+        if iparray[i] < min:
+            min=iparray[i]
+    print(f"{max} {min}")
+
+    return 0
+
+if __name__ == '__main__':
+    main()

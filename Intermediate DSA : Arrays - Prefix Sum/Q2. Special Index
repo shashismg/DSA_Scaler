@@ -1,0 +1,45 @@
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        n=len(A)
+        pse=[0]*n
+        pso=[0]*n
+
+        pse[0]=A[0]
+        pso[0]=0
+
+        for i in range(1, n):
+            if i%2==0:
+                pse[i]=pse[i-1]+A[i]
+                pso[i]=pso[i-1]
+            else:
+                pso[i] = pso[i - 1] + A[i]
+                pse[i]=pse[i-1]
+
+
+        indexcount=0
+
+        for i in range(n):
+            sumeven = 0
+            sumodd = 0
+
+            # left sum
+            if i==0:
+                sumeven = 0
+                sumodd = 0
+            else:
+                sumeven = pse[i - 1]
+                sumodd = pso[i - 1]
+
+            #right sum
+            sumeven += pso[n-1]-pso[i]
+            sumodd += pse[n-1]-pse[i]
+
+
+            if sumeven==sumodd:
+                indexcount+=1
+
+
+
+        return (indexcount)

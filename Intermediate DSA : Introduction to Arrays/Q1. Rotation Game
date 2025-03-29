@@ -1,0 +1,29 @@
+def main():
+    # YOUR CODE GOES HERE
+    # Please take input and print output to standard input/output (stdin/stdout)
+    # E.g. 'input()/raw_input()' for input & 'print' for output
+    ip = input()
+    rotateby=int(input())
+    ipsplit= ip.split( )
+
+    ipnumber=int(ipsplit[0])
+
+    ipfinal=[]
+    for i in range(ipnumber):
+        ipfinal.append(int(ipsplit[i+1]))
+
+    rotatebyModule = rotateby % ipnumber
+    for j in range(rotatebyModule):
+        temp=ipfinal[ipnumber-1]
+        for i in range(ipnumber-2, -1, -1):
+            ipfinal[i+1]=ipfinal[i]
+        ipfinal[0]=temp
+
+    
+    for i in range(ipnumber):
+        print(ipfinal[i], end=" ")
+
+    return 0
+
+if __name__ == '__main__':
+    main()

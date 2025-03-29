@@ -1,0 +1,9 @@
+class Solution:
+    # @param A : integer
+    # @return an integer
+    def solve(self, A):
+        i=int(A**0.5)
+        if i*i==A:
+                return i
+        return -1
+
